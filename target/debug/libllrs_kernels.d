@@ -1,1 +1,1 @@
-/home/ervin/workspace/llama.rs/target/debug/libllrs_kernels.rlib: /home/ervin/workspace/llama.rs/core/llrs-kernels/src/lib.rs
+/home/ervin/workspace/llrs/target/debug/libllrs_kernels.rlib: /home/ervin/workspace/llrs/core/llrs-kernels/src/lib.rs
