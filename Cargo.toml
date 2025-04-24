@@ -1,0 +1,40 @@
+[workspace]
+resolver = "3"
+members = ["core/llrs-core", "core/llrs-kernels", "core/llrs-runtime", "format/llrs-ggml", "format/llrs-gguf", "format/llrs-loader", "research/llrs-algos", "research/llrs-experiments", "research/llrs-research-utils", "tools/llrs-bench", "tools/llrs-chat", "tools/llrs-cli", "tools/llrs-daemon"]
+
+
+[workspace.package]
+version = "0.0.1"
+authors = ["Ervin Bosenbacher <ervin.bosenbacher@thirdrule.io>"]
+edition = "2024"
+homepage = "https://www.thirdrule.io/"
+license = "MIT"
+repository = "https://github.com/thirdrule-io/llama.rs"
+
+[workspace.dependencies]
+clap = { version = "4.5.37", features = ["derive"] }
+anyhow = "1.0.98"
+log = "0.4.27"
+env_logger = "0.11.8"
+tokio = { version = "1.44.2", features = ["full"] }
+tracing-subscriber = "0.3.19"
+
+[profile.mindebug-dev]
+inherits = "dev"
+
+[profile.release]
+lto = "thin"
+
+[profile.nodebug-release]
+inherits = "release"
+debug = false
+
+[profile.debug-release]
+inherits = "release"
+debug = true
+
+[profile.dist-release]
+inherits = "release"
+codegen-units = 1
+debug = false
+lto = "fat"
