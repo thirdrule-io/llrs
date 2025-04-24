@@ -21,6 +21,8 @@ extern "C"
         int n_max_tokens,
         bool add_bos);
 
+    const char *llrs_model_info(const llama_model *model);
+
 #ifdef __cplusplus
 }
 #endif

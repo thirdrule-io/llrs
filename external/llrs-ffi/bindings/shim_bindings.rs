@@ -16,3 +16,7 @@ unsafe extern "C" {
 unsafe extern "C" {
     pub fn llama_new_context_with_model_c(model: *mut llama_model) -> *mut llama_context;
 }
+
+unsafe extern "C" {
+    pub fn llrs_model_info(model: *const llama_model) -> *const ::std::os::raw::c_char;
+}

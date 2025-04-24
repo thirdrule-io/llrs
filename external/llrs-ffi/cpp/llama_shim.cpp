@@ -1,4 +1,7 @@
 #include "llama.h"
+#include <string>
+#include <fmt/core.h>
+#include "../../external/llama.cpp/src/llama-vocab.h"
 
 // hack to get around i generate but not generate
 // these are still mangled for some reason depsite the extern c in the bindgen generated file
@@ -41,5 +44,19 @@ extern "C"
     {
         llama_context_params ctx_params = llama_context_default_params(); // you may want to customize this too
         return llama_new_context_with_model(model, ctx_params);
+    }
+
+    const char *llrs_model_info(const llama_model *model)
+    {
+        const llama_vocab *vocab = llama_model_get_vocab(model);
+
+        std::string info = fmt::format(
+            "Layers: {}, Heads: {}, Embedding Dim: {}, Context: {}, Vocab: {}",
+            llama_model_n_layer(model),
+            llama_model_n_head(model),
+            llama_model_n_embd(model),
+            llama_model_n_ctx_train(model),
+            vocab->n_tokens()); // ✅ safe public method
+        return info.c_str();
     }
 }

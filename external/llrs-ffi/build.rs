@@ -45,11 +45,12 @@ pub fn generate_bindings(header: &str, out_file: &str, extra_args: &[&str]) {
 fn main() {
     println!("buildin");
 
-    generate_bindings("src/wrapper_ggml.h", "generated/ggml_bindings.rs", &[]);
-    generate_bindings("src/wrapper_gguf.h", "generated/gguf_bindings.rs", &[]);
+    generate_bindings("headers/wrapper_ggml.h", "bindings/ggml_bindings.rs", &[]);
+    generate_bindings("headers/wrapper_gguf.h", "bindings/gguf_bindings.rs", &[]);
+    generate_bindings("headers/wrapper_llama.h", "bindings/llama_bindings.rs", &[]);
     generate_bindings(
-        "src/wrapper_common.h",
-        "generated/common_bindings.rs",
+        "headers/wrapper_common.h",
+        "bindings/common_bindings.rs",
         &[
             "-I../../external/llama.cpp/common",
             "-I../../external/llama.cpp",
