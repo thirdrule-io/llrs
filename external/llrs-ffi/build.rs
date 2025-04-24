@@ -25,12 +25,11 @@ pub fn generate_bindings(header: &str, out_file: &str, extra_args: &[&str]) {
 
     common_args.extend_from_slice(extra_args); // Add your extra per-call args
 
-    let mut builder = bindgen::Builder::default()
-        .header(header)
-        .raw_line("#![allow(non_camel_case_types)]")
-        .raw_line("#![allow(non_snake_case)]")
-        .raw_line("#![allow(non_upper_case_globals)]")
-        .raw_line("#![allow(dead_code)]");
+    let mut builder = bindgen::Builder::default().header(header);
+    // .raw_line("#![allow(non_camel_case_types)]")
+    // .raw_line("#![allow(non_snake_case)]")
+    // .raw_line("#![allow(non_upper_case_globals)]")
+    // .raw_line("#![allow(dead_code)]");
 
     for arg in common_args {
         builder = builder.clang_arg(arg);
