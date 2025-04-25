@@ -1,21 +1,32 @@
 [workspace]
-resolver = "3"
 members = [
     "core/llrs-core",
     "core/llrs-kernels",
     "core/llrs-runtime",
-    "external/llrs-ffi",
-    "format/llrs-ggml",
+    "core/llrs-backend",
+    "core/llrs-loader",
+    "core/llrs-threads",
+
+    "loaders/llrs-ggml",
+    "loaders/llrs-loader",
+
+    # file formats
     "format/llrs-gguf",
-    "format/llrs-loader",
+    "format/llrs-onnx",
+    "format/llrs-ppml",
+    "format/llrs-bcctf",
+    "format/llrs-safetensors",
+
     "research/llrs-algos",
     "research/llrs-experiments",
     "research/llrs-research-utils",
+
     "tools/llrs-bench",
     "tools/llrs-chat",
     "tools/llrs-cli",
     "tools/llrs-daemon",
 ]
+resolver = "3"
 
 
 [workspace.package]
