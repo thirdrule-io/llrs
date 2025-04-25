@@ -32,10 +32,10 @@
 //     char padding[8];
 // };
 
-// tensor.rs
-pub struct Tensor {
-    pub data: *mut u8,               // raw ptr or smarter later
-    pub shape: Vec<usize>,           // dims
-    pub dtype: DType,                // quantized or f32
-    pub strides: Option<Vec<usize>>, // calculated if needed
-}
+// // tensor.rs
+// pub struct Tensor {
+//     pub data: *mut u8,               // raw ptr or smarter later
+//     pub shape: Vec<usize>,           // dims
+//     pub dtype: DType,                // quantized or f32
+//     pub strides: Option<Vec<usize>>, // calculated if needed
+// }
