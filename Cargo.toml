@@ -60,7 +60,7 @@ inherits = "release"
 debug = true
 
 [profile.dist-release]
-inherits = "release"
+https://stackoverflow.com/questions/72098296/how-to-create-a-left-packed-vector-of-indices-of-the-0s-in-one-simd-vectorinherits = "release"
 codegen-units = 1
 debug = false
 lto = "fat"
